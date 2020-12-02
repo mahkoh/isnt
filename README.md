@@ -1,5 +1,8 @@
 # isnt
 
+[![crates.io](https://img.shields.io/crates/v/isnt.svg)](http://crates.io/crates/isnt)
+[![docs.rs](https://docs.rs/isnt/badge.svg)](http://docs.rs/isnt)
+
 This crate contains extension methods for most boolean-valued functions the standard
 library. For example
 
