@@ -11,4 +11,11 @@ name = "generator"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "isnt",
 ]
+
+[[package]]
+name = "isnt"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2a7558cc96ddcaf0b4144d7149984ace2899bb29d4ee2999979d429efc305200"

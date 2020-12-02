@@ -7,6 +7,7 @@ use std::borrow::Cow;
 use crate::parser::{Spec, Method};
 use std::fmt::{Display, Formatter, Write as FmtWrite};
 use std::fmt;
+use isnt::std_1::primitive::IsntSliceExt;
 
 pub fn format(mod_: &Mod, out_dir: &Path) -> Result<()> {
     std::fs::create_dir_all(out_dir)?;
@@ -96,7 +97,7 @@ fn write_signature(method: &Method, out: &mut BufWriter<File>) -> Result<()> {
 }
 
 fn write_ty_args(params: &[(String, Option<String>)], out: &mut BufWriter<File>) -> Result<()> {
-    if params.len() > 0 {
+    if params.is_not_empty() {
         write!(out, "<")?;
         for (pos, (name, _)) in params.iter().enumerate() {
             if pos > 0 {
@@ -217,7 +218,7 @@ fn create_trait(spec: &Spec, name: &str, out: &mut BufWriter<File>) -> Result<()
             write!(out, "self")?;
         }
         write!(out, ".{}", method.name)?;
-        if method.ty_params.len() > 0 {
+        if method.ty_params.is_not_empty() {
             write!(out, "::")?;
             write_ty_args(&method.ty_params, out)?;
         }
