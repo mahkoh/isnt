@@ -1,0 +1,3 @@
+impl std::path::PathBuf
+fn pop(&mut self)
+fn set_extension<S: std::convert::AsRef<std::ffi::OsStr>>(&mut self, extension: S)

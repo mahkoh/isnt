@@ -1,0 +1,2 @@
+impl std::ffi::OsStr
+fn is_empty(&self)

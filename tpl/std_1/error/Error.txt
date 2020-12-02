@@ -1,0 +1,2 @@
+impl dyn std::error::Error + 'static
+fn is<T: std::error::Error + 'static>(&self)

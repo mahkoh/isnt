@@ -1,0 +1,2 @@
+impl <K, V> std::collections::BTreeMap<K, V>
+fn is_empty(&self)

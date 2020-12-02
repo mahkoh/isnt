@@ -1,0 +1,2 @@
+impl <T: ?Sized> std::rc::Weak<T>
+fn ptr_eq(&self, other: &std::rc::Weak<T>)

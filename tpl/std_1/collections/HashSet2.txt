@@ -1,0 +1,7 @@
+impl <T, S> std::collections::HashSet<T, S> where T: std::cmp::Eq + std::hash::Hash, S: std::hash::BuildHasher
+fn is_disjoint(&self, other: &std::collections::HashSet<T, S>)
+fn is_subset(&self, other: &std::collections::HashSet<T, S>)
+fn is_superset(&self, other: &std::collections::HashSet<T, S>)
+fn contains<Q: ?Sized>(&self, value: &Q) where T: std::borrow::Borrow<Q>, Q: std::hash::Hash + std::cmp::Eq,
+fn insert(&mut self, value: T)
+fn remove<Q: ?Sized>(&mut self, value: &Q) where T: std::borrow::Borrow<Q>, Q: std::hash::Hash + std::cmp::Eq,

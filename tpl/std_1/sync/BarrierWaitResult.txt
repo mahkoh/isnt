@@ -1,0 +1,2 @@
+impl std::sync::BarrierWaitResult
+fn is_leader(&self)

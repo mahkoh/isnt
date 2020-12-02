@@ -1,0 +1,3 @@
+impl i64
+fn is_negative(self)
+fn is_positive(self)

@@ -1,0 +1,2 @@
+impl <T> std::collections::BinaryHeap<T>
+fn is_empty(&self)

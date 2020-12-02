@@ -1,0 +1,3 @@
+impl <T> Option<T>
+fn is_some(&self)
+fn is_none(&self)

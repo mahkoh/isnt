@@ -1,0 +1,7 @@
+cfg unix
+extends std::os::unix::fs::FileTypeExt
+impl <T: ?Sized> T where T: std::os::unix::fs::FileTypeExt
+fn is_block_device(&self)
+fn is_char_device(&self)
+fn is_fifo(&self)
+fn is_socket(&self)

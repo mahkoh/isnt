@@ -1,0 +1,2 @@
+impl <K, V, S> std::collections::HashMap<K, V, S>
+fn is_empty(&self)

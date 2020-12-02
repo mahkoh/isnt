@@ -1,0 +1,3 @@
+impl <T> std::task::Poll<T>
+fn is_ready(&self)
+fn is_pending(&self)

@@ -1,0 +1,2 @@
+impl <T: ?Sized> std::sync::Mutex<T>
+fn is_poisoned(&self)

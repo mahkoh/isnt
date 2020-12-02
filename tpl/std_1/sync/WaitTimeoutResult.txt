@@ -1,0 +1,2 @@
+impl std::sync::WaitTimeoutResult
+fn timed_out(&self)

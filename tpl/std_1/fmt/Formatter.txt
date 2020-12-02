@@ -1,0 +1,5 @@
+impl <'a> std::fmt::Formatter<'a>
+fn sign_plus(&self)
+fn sign_minus(&self)
+fn alternate(&self)
+fn sign_aware_zero_pad(&self)

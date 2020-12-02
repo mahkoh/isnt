@@ -1,0 +1,7 @@
+impl f32
+fn is_nan(self)
+fn is_infinite(self)
+fn is_finite(self)
+fn is_normal(self)
+fn is_sign_positive(self)
+fn is_sign_negative(self)

@@ -1,0 +1,2 @@
+impl std::sync::Once
+fn is_completed(&self)

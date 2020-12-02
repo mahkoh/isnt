@@ -1,0 +1,2 @@
+impl std::fs::Permissions
+fn readonly(&self)

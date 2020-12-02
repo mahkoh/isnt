@@ -1,0 +1,6 @@
+extends std::cmp::PartialOrd<Rhs>
+impl <Lhs: ?Sized, Rhs: ?Sized> Lhs where Lhs: std::cmp::PartialOrd<Rhs>
+fn lt(&self, other: &Rhs)
+fn le(&self, other: &Rhs)
+fn gt(&self, other: &Rhs)
+fn ge(&self, other: &Rhs)

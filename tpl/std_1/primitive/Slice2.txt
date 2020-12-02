@@ -1,0 +1,5 @@
+target_name slices
+impl <T> [T] where T: std::cmp::PartialEq<T>
+fn contains(&self, x: &T)
+fn starts_with(&self, needle: &[T])
+fn ends_with(&self, needle: &[T])

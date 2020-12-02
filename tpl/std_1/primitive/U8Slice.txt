@@ -1,0 +1,4 @@
+target_name byte slices
+impl [u8]
+fn is_ascii(&self)
+fn eq_ignore_ascii_case(&self, other: &[u8])

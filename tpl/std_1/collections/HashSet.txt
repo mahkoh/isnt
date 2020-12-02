@@ -1,0 +1,2 @@
+impl <T, S> std::collections::HashSet<T, S>
+fn is_empty(&self)

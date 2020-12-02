@@ -1,0 +1,9 @@
+impl std::path::Path
+fn is_absolute(&self)
+fn is_relative(&self)
+fn has_root(&self)
+fn starts_with<P: std::convert::AsRef<std::path::Path>>(&self, base: P)
+fn ends_with<P: std::convert::AsRef<std::path::Path>>(&self, child: P)
+fn exists(&self)
+fn is_file(&self)
+fn is_dir(&self)

@@ -1,0 +1,2 @@
+impl <T> Vec<T>
+fn is_empty(&self)

@@ -1,0 +1,2 @@
+impl dyn std::error::Error + 'static + Send + Sync
+fn is<T: std::error::Error + 'static>(&self)

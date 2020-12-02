@@ -1,0 +1,2 @@
+impl <'a> std::path::Prefix<'a>
+fn is_verbatim(&self)

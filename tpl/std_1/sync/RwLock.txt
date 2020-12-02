@@ -1,0 +1,2 @@
+impl <T: ?Sized> std::sync::RwLock<T>
+fn is_poisoned(&self)

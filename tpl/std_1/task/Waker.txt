@@ -1,0 +1,2 @@
+impl std::task::Waker
+fn will_wake(&self, other: &std::task::Waker)

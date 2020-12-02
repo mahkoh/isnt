@@ -1,0 +1,2 @@
+impl dyn std::error::Error + 'static + Send
+fn is<T: std::error::Error + 'static>(&self)

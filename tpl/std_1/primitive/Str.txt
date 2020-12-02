@@ -1,0 +1,5 @@
+impl str
+fn is_ascii(&self)
+fn is_char_boundary(&self, index: usize)
+fn is_empty(&self)
+fn eq_ignore_ascii_case(&self, other: &str)

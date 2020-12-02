@@ -1,0 +1,9 @@
+impl f64
+fn is_nan(self)
+fn is_infinite(self)
+fn is_finite(self)
+fn is_normal(self)
+fn is_sign_positive(self)
+# fn is_positive(self) // deprecated
+fn is_sign_negative(self)
+# fn is_negative(self) // deprecated

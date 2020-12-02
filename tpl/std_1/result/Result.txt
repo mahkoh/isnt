@@ -1,0 +1,3 @@
+impl <T, E> Result<T, E>
+fn is_ok(&self)
+fn is_err(&self)

@@ -1,0 +1,10 @@
+extends std::iter::Iterator
+impl <T: ?Sized> T where T: std::iter::Iterator
+fn all<F>(&mut self, f: F) where F: FnMut(Self::Item) -> bool, Self: Sized,
+fn any<F>(&mut self, f: F) where F: FnMut(Self::Item) -> bool, Self: Sized,
+fn eq<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialEq<<I as std::iter::IntoIterator>::Item>, Self: Sized
+fn ne<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialEq<<I as IntoIterator>::Item>, Self: Sized
+fn lt<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn le<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn gt<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn ge<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized

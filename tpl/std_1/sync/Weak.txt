@@ -1,0 +1,2 @@
+impl <T: ?Sized> std::sync::Weak<T>
+fn ptr_eq(&self, other: &std::sync::Weak<T>)

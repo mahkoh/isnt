@@ -1,0 +1,2 @@
+impl dyn std::any::Any + 'static
+fn is<T: std::any::Any>(&self)

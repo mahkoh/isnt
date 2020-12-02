@@ -1,0 +1,8 @@
+impl std::net::Ipv4Addr
+fn is_unspecified(&self)
+fn is_loopback(&self)
+fn is_private(&self)
+fn is_link_local(&self)
+fn is_multicast(&self)
+fn is_broadcast(&self)
+fn is_documentation(&self)

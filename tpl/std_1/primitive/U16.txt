@@ -1,0 +1,2 @@
+impl u16
+fn is_power_of_two(self)
