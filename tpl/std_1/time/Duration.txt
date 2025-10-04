@@ -1,0 +1,2 @@
+impl std::time::Duration
+fn is_zero(&self)

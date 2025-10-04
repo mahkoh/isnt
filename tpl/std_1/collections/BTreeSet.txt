@@ -1,2 +1,8 @@
 impl <T> std::collections::BTreeSet<T>
+fn contains<Q>(&self, value: &Q) where T: std::borrow::Borrow<Q> + Ord, Q: Ord + ?Sized
+fn is_disjoint(&self, other: &std::collections::BTreeSet<T>) where T: Ord
+fn is_subset(&self, other: &std::collections::BTreeSet<T>) where T: Ord
+fn is_superset(&self, other: &std::collections::BTreeSet<T>) where T: Ord
+fn insert(&mut self, value: T) where T: Ord
+fn remove<Q>(&mut self, value: &Q) where T: std::borrow::Borrow<Q> + Ord, Q: Ord + ?Sized
 fn is_empty(&self)

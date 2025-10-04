@@ -1,2 +1,0 @@
-impl <K, V, S> std::collections::HashMap<K, V, S> where K: std::cmp::Eq + std::hash::Hash, S: std::hash::BuildHasher,
-fn contains_key<Q: ?Sized>(&self, k: &Q) where K: std::borrow::Borrow<Q>, Q: std::hash::Hash + std::cmp::Eq,

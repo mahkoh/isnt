@@ -44,6 +44,9 @@ pub trait IsntMetadataExt: metadata_private::Sealed {
     /// The negation of [`is_file`](std::fs::Metadata::is_file)
     #[must_use]
     fn is_not_file(&self) -> bool;
+    /// The negation of [`is_symlink`](std::fs::Metadata::is_symlink)
+    #[must_use]
+    fn is_not_symlink(&self) -> bool;
 }
 
 impl metadata_private::Sealed for std::fs::Metadata { }
@@ -57,6 +60,11 @@ impl IsntMetadataExt for std::fs::Metadata {
     #[inline]
     fn is_not_file(&self) -> bool {
         !self.is_file()
+    }
+
+    #[inline]
+    fn is_not_symlink(&self) -> bool {
+        !self.is_symlink()
     }
 }
 

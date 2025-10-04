@@ -1,0 +1,3 @@
+extends std::io::IsTerminal
+impl <T> T where T: std::io::IsTerminal
+fn is_terminal(&self)

@@ -1,0 +1,2 @@
+impl std::num::Saturating<usize>
+fn is_power_of_two(self)

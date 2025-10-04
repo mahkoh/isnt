@@ -1,2 +1,4 @@
 impl std::ffi::OsStr
 fn is_empty(&self)
+fn is_ascii(&self)
+fn eq_ignore_ascii_case<S>(&self, other: S) where S: AsRef<std::ffi::OsStr>

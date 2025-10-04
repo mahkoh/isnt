@@ -1,0 +1,7 @@
+impl std::cmp::Ordering
+fn is_eq(self)
+fn is_ge(self)
+fn is_gt(self)
+fn is_le(self)
+fn is_lt(self)
+fn is_ne(self)

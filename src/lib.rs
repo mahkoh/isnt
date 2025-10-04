@@ -13,4 +13,6 @@
 //! Most of the code in this crate is generated and undocumented. The organization
 //! follows the module structure of the standard library.
 
+#![allow(clippy::wrong_self_convention)]
+
 include!("lib_generated.rs");

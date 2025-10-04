@@ -1,0 +1,2 @@
+impl std::sync::OnceState
+fn is_poisoned(&self)

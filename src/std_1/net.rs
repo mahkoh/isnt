@@ -2,22 +2,28 @@
 
 mod ip_addr_private { pub trait Sealed { } }
 
-/// Extension for [`Ipv6Addr`](std::net::Ipv6Addr)
+/// Extension for [`IpAddr`](std::net::IpAddr)
 pub trait IsntIpAddrExt: ip_addr_private::Sealed {
-    /// The negation of [`is_unspecified`](std::net::Ipv6Addr::is_unspecified)
+    /// The negation of [`is_unspecified`](std::net::IpAddr::is_unspecified)
     #[must_use]
     fn is_not_unspecified(&self) -> bool;
-    /// The negation of [`is_loopback`](std::net::Ipv6Addr::is_loopback)
+    /// The negation of [`is_loopback`](std::net::IpAddr::is_loopback)
     #[must_use]
     fn is_not_loopback(&self) -> bool;
-    /// The negation of [`is_multicast`](std::net::Ipv6Addr::is_multicast)
+    /// The negation of [`is_multicast`](std::net::IpAddr::is_multicast)
     #[must_use]
     fn is_not_multicast(&self) -> bool;
+    /// The negation of [`is_ipv4`](std::net::IpAddr::is_ipv4)
+    #[must_use]
+    fn is_not_ipv4(&self) -> bool;
+    /// The negation of [`is_ipv6`](std::net::IpAddr::is_ipv6)
+    #[must_use]
+    fn is_not_ipv6(&self) -> bool;
 }
 
-impl ip_addr_private::Sealed for std::net::Ipv6Addr { }
+impl ip_addr_private::Sealed for std::net::IpAddr { }
 
-impl IsntIpAddrExt for std::net::Ipv6Addr {
+impl IsntIpAddrExt for std::net::IpAddr {
     #[inline]
     fn is_not_unspecified(&self) -> bool {
         !self.is_unspecified()
@@ -31,6 +37,16 @@ impl IsntIpAddrExt for std::net::Ipv6Addr {
     #[inline]
     fn is_not_multicast(&self) -> bool {
         !self.is_multicast()
+    }
+
+    #[inline]
+    fn is_not_ipv4(&self) -> bool {
+        !self.is_ipv4()
+    }
+
+    #[inline]
+    fn is_not_ipv6(&self) -> bool {
+        !self.is_ipv6()
     }
 }
 
@@ -102,28 +118,28 @@ impl IsntIpv4AddrExt for std::net::Ipv4Addr {
 
 mod ipv6_addr_private { pub trait Sealed { } }
 
-/// Extension for [`IpAddr`](std::net::IpAddr)
+/// Extension for [`Ipv6Addr`](std::net::Ipv6Addr)
 pub trait IsntIpv6AddrExt: ipv6_addr_private::Sealed {
-    /// The negation of [`is_unspecified`](std::net::IpAddr::is_unspecified)
+    /// The negation of [`is_unspecified`](std::net::Ipv6Addr::is_unspecified)
     #[must_use]
     fn is_not_unspecified(&self) -> bool;
-    /// The negation of [`is_loopback`](std::net::IpAddr::is_loopback)
+    /// The negation of [`is_loopback`](std::net::Ipv6Addr::is_loopback)
     #[must_use]
     fn is_not_loopback(&self) -> bool;
-    /// The negation of [`is_multicast`](std::net::IpAddr::is_multicast)
+    /// The negation of [`is_unique_local`](std::net::Ipv6Addr::is_unique_local)
+    #[must_use]
+    fn is_not_unique_local(&self) -> bool;
+    /// The negation of [`is_unicast_link_local`](std::net::Ipv6Addr::is_unicast_link_local)
+    #[must_use]
+    fn is_not_unicast_link_local(&self) -> bool;
+    /// The negation of [`is_multicast`](std::net::Ipv6Addr::is_multicast)
     #[must_use]
     fn is_not_multicast(&self) -> bool;
-    /// The negation of [`is_ipv4`](std::net::IpAddr::is_ipv4)
-    #[must_use]
-    fn is_not_ipv4(&self) -> bool;
-    /// The negation of [`is_ipv6`](std::net::IpAddr::is_ipv6)
-    #[must_use]
-    fn is_not_ipv6(&self) -> bool;
 }
 
-impl ipv6_addr_private::Sealed for std::net::IpAddr { }
+impl ipv6_addr_private::Sealed for std::net::Ipv6Addr { }
 
-impl IsntIpv6AddrExt for std::net::IpAddr {
+impl IsntIpv6AddrExt for std::net::Ipv6Addr {
     #[inline]
     fn is_not_unspecified(&self) -> bool {
         !self.is_unspecified()
@@ -135,18 +151,18 @@ impl IsntIpv6AddrExt for std::net::IpAddr {
     }
 
     #[inline]
+    fn is_not_unique_local(&self) -> bool {
+        !self.is_unique_local()
+    }
+
+    #[inline]
+    fn is_not_unicast_link_local(&self) -> bool {
+        !self.is_unicast_link_local()
+    }
+
+    #[inline]
     fn is_not_multicast(&self) -> bool {
         !self.is_multicast()
-    }
-
-    #[inline]
-    fn is_not_ipv4(&self) -> bool {
-        !self.is_ipv4()
-    }
-
-    #[inline]
-    fn is_not_ipv6(&self) -> bool {
-        !self.is_ipv6()
     }
 }
 

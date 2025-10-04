@@ -1,0 +1,8 @@
+impl std::sync::atomic::AtomicBool
+fn into_inner(self)
+fn load(&self, order: std::sync::atomic::Ordering)
+fn swap(&self, val: bool, order: std::sync::atomic::Ordering)
+fn fetch_and(&self, val: bool, order: std::sync::atomic::Ordering)
+fn fetch_nand(&self, val: bool, order: std::sync::atomic::Ordering)
+fn fetch_xor(&self, val: bool, order: std::sync::atomic::Ordering)
+fn fetch_not(&self, order: std::sync::atomic::Ordering)

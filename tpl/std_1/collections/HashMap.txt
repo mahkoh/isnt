@@ -1,2 +1,3 @@
 impl <K, V, S> std::collections::HashMap<K, V, S>
 fn is_empty(&self)
+fn contains_key<Q>(&self, k: &Q) where K: std::borrow::Borrow<Q> + std::hash::Hash + Eq, Q: std::hash::Hash + Eq + ?Sized, S: std::hash::BuildHasher

@@ -1,0 +1,3 @@
+impl std::num::Saturating<isize>
+fn is_negative(self)
+fn is_positive(self)

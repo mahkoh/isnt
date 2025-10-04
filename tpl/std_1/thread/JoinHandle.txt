@@ -1,0 +1,2 @@
+impl <T> std::thread::JoinHandle<T>
+fn is_finished(&self)

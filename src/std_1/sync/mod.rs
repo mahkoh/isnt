@@ -1,5 +1,6 @@
 // This file was generated
 
+pub mod atomic;
 mod barrier_wait_result_private { pub trait Sealed { } }
 
 /// Extension for [`BarrierWaitResult`](std::sync::BarrierWaitResult)
@@ -51,6 +52,24 @@ impl IsntOnceExt for std::sync::Once {
     #[inline]
     fn is_not_completed(&self) -> bool {
         !self.is_completed()
+    }
+}
+
+mod once_state_private { pub trait Sealed { } }
+
+/// Extension for [`OnceState`](std::sync::OnceState)
+pub trait IsntOnceStateExt: once_state_private::Sealed {
+    /// The negation of [`is_poisoned`](std::sync::OnceState::is_poisoned)
+    #[must_use]
+    fn is_not_poisoned(&self) -> bool;
+}
+
+impl once_state_private::Sealed for std::sync::OnceState { }
+
+impl IsntOnceStateExt for std::sync::OnceState {
+    #[inline]
+    fn is_not_poisoned(&self) -> bool {
+        !self.is_poisoned()
     }
 }
 

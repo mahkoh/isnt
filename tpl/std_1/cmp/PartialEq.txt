@@ -1,4 +1,4 @@
-extends std::cmp::PartialEq<Rhs>
-impl <Lhs: ?Sized, Rhs: ?Sized> Lhs where Lhs: std::cmp::PartialEq<Rhs>
+extends PartialEq<Rhs>
+impl <Lhs: ?Sized, Rhs: ?Sized> Lhs where Lhs: PartialEq<Rhs>
 fn eq(&self, other: &Rhs)
 fn ne(&self, other: &Rhs)

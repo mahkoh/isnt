@@ -7,3 +7,4 @@ fn is_sign_positive(self)
 # fn is_positive(self) // deprecated
 fn is_sign_negative(self)
 # fn is_negative(self) // deprecated
+fn is_subnormal(self)
