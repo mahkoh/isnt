@@ -1,3 +1,4 @@
 target_name const pointers
 impl <T: ?Sized> *const T
 fn is_null(self)
+fn is_aligned(self) where T: Sized

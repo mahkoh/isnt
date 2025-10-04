@@ -28,6 +28,9 @@ pub trait IsntPathExt: path_private::Sealed {
     /// The negation of [`is_dir`](std::path::Path::is_dir)
     #[must_use]
     fn is_not_dir(&self) -> bool;
+    /// The negation of [`is_symlink`](std::path::Path::is_symlink)
+    #[must_use]
+    fn is_not_symlink(&self) -> bool;
 }
 
 impl path_private::Sealed for std::path::Path { }
@@ -71,6 +74,11 @@ impl IsntPathExt for std::path::Path {
     #[inline]
     fn is_not_dir(&self) -> bool {
         !self.is_dir()
+    }
+
+    #[inline]
+    fn is_not_symlink(&self) -> bool {
+        !self.is_symlink()
     }
 }
 

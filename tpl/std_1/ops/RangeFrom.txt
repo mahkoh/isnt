@@ -1,2 +1,2 @@
-impl <Idx> std::ops::RangeFrom<Idx> where Idx: std::cmp::PartialOrd<Idx>,
-fn contains<U>(&self, item: &U) where Idx: std::cmp::PartialOrd<U>, U: std::cmp::PartialOrd<Idx> + ?Sized,
+impl <Idx> std::ops::RangeFrom<Idx> where Idx: PartialOrd<Idx>,
+fn contains<U>(&self, item: &U) where Idx: PartialOrd<U>, U: PartialOrd<Idx> + ?Sized,

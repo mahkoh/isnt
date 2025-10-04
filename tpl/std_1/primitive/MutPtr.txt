@@ -1,3 +1,4 @@
 target_name mut pointers
 impl <T: ?Sized> *mut T
 fn is_null(self)
+fn is_aligned(self) where T: Sized

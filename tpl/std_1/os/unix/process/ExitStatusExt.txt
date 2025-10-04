@@ -1,0 +1,5 @@
+cfg unix
+extends std::os::unix::process::ExitStatusExt
+impl <T: ?Sized> T where T: std::os::unix::process::ExitStatusExt
+fn core_dumped(&self)
+fn continued(&self)

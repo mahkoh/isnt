@@ -1,0 +1,2 @@
+impl <'a, T> std::thread::ScopedJoinHandle<'a, T>
+fn is_finished(&self)

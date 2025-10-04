@@ -1,10 +1,13 @@
-extends std::iter::Iterator
-impl <T: ?Sized> T where T: std::iter::Iterator
+extends Iterator
+impl <T: ?Sized> T where T: Iterator
 fn all<F>(&mut self, f: F) where F: FnMut(Self::Item) -> bool, Self: Sized,
 fn any<F>(&mut self, f: F) where F: FnMut(Self::Item) -> bool, Self: Sized,
-fn eq<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialEq<<I as std::iter::IntoIterator>::Item>, Self: Sized
-fn ne<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialEq<<I as IntoIterator>::Item>, Self: Sized
-fn lt<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
-fn le<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
-fn gt<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
-fn ge<I>(self, other: I) where I: std::iter::IntoIterator, Self::Item: std::cmp::PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn eq<I>(self, other: I) where I: IntoIterator, Self::Item: PartialEq<<I as IntoIterator>::Item>, Self: Sized
+fn ne<I>(self, other: I) where I: IntoIterator, Self::Item: PartialEq<<I as IntoIterator>::Item>, Self: Sized
+fn lt<I>(self, other: I) where I: IntoIterator, Self::Item: PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn le<I>(self, other: I) where I: IntoIterator, Self::Item: PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn gt<I>(self, other: I) where I: IntoIterator, Self::Item: PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn ge<I>(self, other: I) where I: IntoIterator, Self::Item: PartialOrd<<I as IntoIterator>::Item>, Self: Sized
+fn is_sorted(self) where Self: Sized, Self::Item: PartialOrd
+fn is_sorted_by<F>(self, compare: F) where Self: Sized, F: FnMut(&Self::Item, &Self::Item) -> bool
+fn is_sorted_by_key<F, K>(self, f: F) where Self: Sized, F: FnMut(Self::Item) -> K, K: PartialOrd

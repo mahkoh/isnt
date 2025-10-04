@@ -177,6 +177,9 @@ pub trait IsntConstPtrExt<T: ?Sized>: const_ptr_private::Sealed<T> {
     /// The negation of `is_null`
     #[must_use]
     fn is_not_null(self) -> bool;
+    /// The negation of `is_aligned`
+    #[must_use]
+    fn is_not_aligned(self) -> bool where T: Sized;
 }
 
 impl<T: ?Sized> const_ptr_private::Sealed<T> for *const T { }
@@ -185,6 +188,29 @@ impl<T: ?Sized> IsntConstPtrExt<T> for *const T {
     #[inline]
     fn is_not_null(self) -> bool {
         !self.is_null()
+    }
+
+    #[inline]
+    fn is_not_aligned(self) -> bool where T: Sized {
+        !self.is_aligned()
+    }
+}
+
+mod const_ptr_slice_private { pub trait Sealed<T> { } }
+
+/// Extension for const pointer slices
+pub trait IsntConstPtrSliceExt<T>: const_ptr_slice_private::Sealed<T> {
+    /// The negation of `is_empty`
+    #[must_use]
+    fn is_not_empty(self) -> bool;
+}
+
+impl<T> const_ptr_slice_private::Sealed<T> for *const [T] { }
+
+impl<T> IsntConstPtrSliceExt<T> for *const [T] {
+    #[inline]
+    fn is_not_empty(self) -> bool {
+        !self.is_empty()
     }
 }
 
@@ -210,6 +236,9 @@ pub trait IsntF32Ext: f32_private::Sealed {
     /// The negation of [`is_sign_negative`](f32::is_sign_negative)
     #[must_use]
     fn is_not_sign_negative(self) -> bool;
+    /// The negation of [`is_subnormal`](f32::is_subnormal)
+    #[must_use]
+    fn is_not_subnormal(self) -> bool;
 }
 
 impl f32_private::Sealed for f32 { }
@@ -244,6 +273,11 @@ impl IsntF32Ext for f32 {
     fn is_not_sign_negative(self) -> bool {
         !self.is_sign_negative()
     }
+
+    #[inline]
+    fn is_not_subnormal(self) -> bool {
+        !self.is_subnormal()
+    }
 }
 
 mod f64_private { pub trait Sealed { } }
@@ -268,6 +302,9 @@ pub trait IsntF64Ext: f64_private::Sealed {
     /// The negation of [`is_sign_negative`](f64::is_sign_negative)
     #[must_use]
     fn is_not_sign_negative(self) -> bool;
+    /// The negation of [`is_subnormal`](f64::is_subnormal)
+    #[must_use]
+    fn is_not_subnormal(self) -> bool;
 }
 
 impl f64_private::Sealed for f64 { }
@@ -301,6 +338,11 @@ impl IsntF64Ext for f64 {
     #[inline]
     fn is_not_sign_negative(self) -> bool {
         !self.is_sign_negative()
+    }
+
+    #[inline]
+    fn is_not_subnormal(self) -> bool {
+        !self.is_subnormal()
     }
 }
 
@@ -467,6 +509,9 @@ pub trait IsntMutPtrExt<T: ?Sized>: mut_ptr_private::Sealed<T> {
     /// The negation of `is_null`
     #[must_use]
     fn is_not_null(self) -> bool;
+    /// The negation of `is_aligned`
+    #[must_use]
+    fn is_not_aligned(self) -> bool where T: Sized;
 }
 
 impl<T: ?Sized> mut_ptr_private::Sealed<T> for *mut T { }
@@ -475,6 +520,29 @@ impl<T: ?Sized> IsntMutPtrExt<T> for *mut T {
     #[inline]
     fn is_not_null(self) -> bool {
         !self.is_null()
+    }
+
+    #[inline]
+    fn is_not_aligned(self) -> bool where T: Sized {
+        !self.is_aligned()
+    }
+}
+
+mod mut_ptr_slice_private { pub trait Sealed<T> { } }
+
+/// Extension for mut pointer slices
+pub trait IsntMutPtrSliceExt<T>: mut_ptr_slice_private::Sealed<T> {
+    /// The negation of `is_empty`
+    #[must_use]
+    fn is_not_empty(self) -> bool;
+}
+
+impl<T> mut_ptr_slice_private::Sealed<T> for *mut [T] { }
+
+impl<T> IsntMutPtrSliceExt<T> for *mut [T] {
+    #[inline]
+    fn is_not_empty(self) -> bool {
+        !self.is_empty()
     }
 }
 
@@ -485,6 +553,24 @@ pub trait IsntSliceExt<T>: slice_private::Sealed<T> {
     /// The negation of `is_empty`
     #[must_use]
     fn is_not_empty(&self) -> bool;
+    /// The negation of `contains`
+    #[must_use]
+    fn not_contains(&self, x: &T) -> bool where T: PartialEq;
+    /// The negation of `starts_with`
+    #[must_use]
+    fn not_starts_with(&self, needle: &[T]) -> bool where T: PartialEq;
+    /// The negation of `ends_with`
+    #[must_use]
+    fn not_ends_with(&self, needle: &[T]) -> bool where T: PartialEq;
+    /// The negation of `is_sorted`
+    #[must_use]
+    fn is_not_sorted(&self) -> bool where T: PartialOrd;
+    /// The negation of `is_sorted_by`
+    #[must_use]
+    fn is_not_sorted_by<'a, F>(&'a self, compare: F) -> bool where T: 'a, F: FnMut(&'a T, &'a T) -> bool;
+    /// The negation of `is_sorted_by_key`
+    #[must_use]
+    fn is_not_sorted_by_key<'a, F, K>(&'a self, f: F) -> bool where T: 'a, F: FnMut(&'a T) -> K, K: PartialOrd;
 }
 
 impl<T> slice_private::Sealed<T> for [T] { }
@@ -494,39 +580,35 @@ impl<T> IsntSliceExt<T> for [T] {
     fn is_not_empty(&self) -> bool {
         !self.is_empty()
     }
-}
 
-mod slice2_private { pub trait Sealed<T> { } }
-
-/// Extension for slices
-pub trait IsntSlice2Ext<T>: slice2_private::Sealed<T> {
-    /// The negation of `contains`
-    #[must_use]
-    fn not_contains(&self, x: &T) -> bool;
-    /// The negation of `starts_with`
-    #[must_use]
-    fn not_starts_with(&self, needle: &[T]) -> bool;
-    /// The negation of `ends_with`
-    #[must_use]
-    fn not_ends_with(&self, needle: &[T]) -> bool;
-}
-
-impl<T> slice2_private::Sealed<T> for [T] where T: std::cmp::PartialEq<T> { }
-
-impl<T> IsntSlice2Ext<T> for [T] where T: std::cmp::PartialEq<T> {
     #[inline]
-    fn not_contains(&self, x: &T) -> bool {
+    fn not_contains(&self, x: &T) -> bool where T: PartialEq {
         !self.contains(x)
     }
 
     #[inline]
-    fn not_starts_with(&self, needle: &[T]) -> bool {
+    fn not_starts_with(&self, needle: &[T]) -> bool where T: PartialEq {
         !self.starts_with(needle)
     }
 
     #[inline]
-    fn not_ends_with(&self, needle: &[T]) -> bool {
+    fn not_ends_with(&self, needle: &[T]) -> bool where T: PartialEq {
         !self.ends_with(needle)
+    }
+
+    #[inline]
+    fn is_not_sorted(&self) -> bool where T: PartialOrd {
+        !self.is_sorted()
+    }
+
+    #[inline]
+    fn is_not_sorted_by<'a, F>(&'a self, compare: F) -> bool where T: 'a, F: FnMut(&'a T, &'a T) -> bool {
+        !self.is_sorted_by::<'a, F>(compare)
+    }
+
+    #[inline]
+    fn is_not_sorted_by_key<'a, F, K>(&'a self, f: F) -> bool where T: 'a, F: FnMut(&'a T) -> K, K: PartialOrd {
+        !self.is_sorted_by_key::<'a, F, K>(f)
     }
 }
 

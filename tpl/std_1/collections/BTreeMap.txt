@@ -1,2 +1,3 @@
 impl <K, V> std::collections::BTreeMap<K, V>
 fn is_empty(&self)
+fn contains_key<Q>(&self, key: &Q) where K: std::borrow::Borrow<Q> + Ord, Q: Ord + ?Sized,

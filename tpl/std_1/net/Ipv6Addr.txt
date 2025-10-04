@@ -1,6 +1,6 @@
-impl std::net::IpAddr
+impl std::net::Ipv6Addr
 fn is_unspecified(&self)
 fn is_loopback(&self)
+fn is_unique_local(&self)
+fn is_unicast_link_local(&self)
 fn is_multicast(&self)
-fn is_ipv4(&self)
-fn is_ipv6(&self)

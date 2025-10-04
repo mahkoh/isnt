@@ -1,0 +1,2 @@
+impl <T> std::ptr::NonNull<T>
+fn is_aligned(self)

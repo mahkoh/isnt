@@ -1,7 +1,0 @@
-impl <T: std::cmp::Ord> std::collections::BTreeSet<T>
-fn is_disjoint(&self, other: &std::collections::BTreeSet<T>)
-fn is_subset(&self, other: &std::collections::BTreeSet<T>)
-fn is_superset(&self, other: &std::collections::BTreeSet<T>)
-fn contains<Q>(&self, value: &Q) where Q: std::cmp::Ord + ?Sized, T: std::borrow::Borrow<Q>,
-fn insert(&mut self, value: T)
-fn remove<Q>(&mut self, value: &Q) where Q: std::cmp::Ord + ?Sized, T: std::borrow::Borrow<Q>,

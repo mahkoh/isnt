@@ -1,2 +1,8 @@
 impl <T, S> std::collections::HashSet<T, S>
 fn is_empty(&self)
+fn contains<Q>(&self, value: &Q) where T: std::borrow::Borrow<Q> + std::hash::Hash + Eq, Q: std::hash::Hash + Eq + ?Sized, S: std::hash::BuildHasher
+fn is_disjoint(&self, other: &std::collections::HashSet<T, S>) where T: std::hash::Hash + Eq, S: std::hash::BuildHasher
+fn is_subset(&self, other: &std::collections::HashSet<T, S>) where T: std::hash::Hash + Eq, S: std::hash::BuildHasher
+fn is_superset(&self, other: &std::collections::HashSet<T, S>) where T: std::hash::Hash + Eq, S: std::hash::BuildHasher
+fn insert(&mut self, value: T) where T: std::hash::Hash + Eq, S: std::hash::BuildHasher
+fn remove<Q>(&mut self, value: &Q) where T: std::borrow::Borrow<Q> + std::hash::Hash + Eq, Q: std::hash::Hash + Eq + ?Sized, S: std::hash::BuildHasher

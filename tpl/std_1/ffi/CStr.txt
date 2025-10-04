@@ -1,0 +1,2 @@
+impl std::ffi::CStr
+fn is_empty(&self)

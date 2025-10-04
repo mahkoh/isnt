@@ -1,8 +1,8 @@
 [package]
 name = "isnt"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Julian Orth <ju.orth@gmail.com>"]
-edition = "2018"
+edition = "2024"
 license = "MIT OR Apache-2.0"
 description = "Inverted versions of boolean-valued stdlib functions"
 repository = "https://github.com/mahkoh/isnt"
